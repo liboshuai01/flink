@@ -13,14 +13,34 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.typesafe.akka</groupId>
-			<artifactId>akka-actor_2.12</artifactId>
-			<version>2.5.32</version>
+			<groupId>org.apache.pekko</groupId>
+			<artifactId>pekko-actor_2.12</artifactId>
+			<version>1.0.1</version>
+			<!--<optional>${flink.markBundledAsOptional}</optional>-->
 		</dependency>
 		<dependency>
-			<groupId>com.typesafe.akka</groupId>
-			<artifactId>akka-remote_2.12</artifactId>
-			<version>2.5.32</version>
+			<groupId>org.apache.pekko</groupId>
+			<artifactId>pekko-remote_2.12</artifactId>
+			<version>1.0.1</version>
+			<!--<optional>${flink.markBundledAsOptional}</optional>-->
+			<exclusions>
+				<exclusion>
+					<!-- optional dependency for UDP transport which we don't need -->
+					<groupId>io.aeron</groupId>
+					<artifactId>aeron-driver</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- optional dependency for UDP transport which we don't need -->
+					<groupId>io.aeron</groupId>
+					<artifactId>aeron-client</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
 		</dependency>
 	</dependencies>
 	<build>
