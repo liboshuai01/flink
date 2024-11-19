@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>flink-learning-rpc-reflection</module>
+		<module>flink-learning-rpc-socket</module>
 	</modules>
 
 	<properties>
