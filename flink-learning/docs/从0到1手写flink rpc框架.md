@@ -12,8 +12,86 @@ Flink作为一个分布式流计算框架肯定涉及到了不少远程数据交
 
 ### socket
 
-```java
+> 代码地址：[]()
 
+Socket 是一种网络编程的基本组件，允许程序通过网络进行通信。在 Java 中，我们可以使用 ServerSocket 和 Socket 类来实现网络通信。ServerSocket 用于监听端口并接受客户端的连接，而 Socket 则用于与服务端进行通信。
+
+下面我们将创建两个类：Server（服务端）和 Client（客户端）。服务端会监听端口，等待客户端的连接，并在接收到消息后返回响应。客户端则会连接到服务端，发送消息并接收响应。
+
+```java
+package cn.liboshuai.flink.base.socket;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+@Slf4j
+public class Server {
+    public static void main(String[] args) throws Exception {
+        // 创建一个ServerSocket，监听端口9991
+        ServerSocket serverSocket = new ServerSocket(9991);
+        log.info("服务端已启动，等待连接...");
+
+        // 接受客户端的连接请求（同步阻塞等待客户端的连接）
+        Socket socket = serverSocket.accept();
+        log.info("客户端已连接: {}", socket.getRemoteSocketAddress());
+
+        // 创建输入流，用于接收客户端发送的对象
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+        Object object = objectInputStream.readObject();
+        // 打印客户端发送的信息
+        log.info("收到信息: {}", object);
+
+        // 创建输出流，向客户端发送响应
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        objectOutputStream.writeObject("你好啊，我是服务端-提供者");
+        objectOutputStream.flush();
+
+        // 关闭资源，避免内存泄漏
+        objectOutputStream.close();
+        objectInputStream.close();
+        socket.close();
+        serverSocket.close();
+    }
+}
+```
+
+```java
+package cn.liboshuai.flink.base.socket;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+@Slf4j
+public class Client {
+    public static void main(String[] args) throws Exception {
+        // 创建Socket连接到服务端
+        Socket socket = new Socket("127.0.0.1", 9991);
+        log.info("已连接到服务端: {}", socket.getRemoteSocketAddress());
+
+        // 创建输出流，向服务端发送消息
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        objectOutputStream.writeObject("你好啊，我是客户端-消费者");
+        objectOutputStream.flush();
+
+        // 创建输入流，接收服务端的响应
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+        Object object = objectInputStream.readObject();
+        // 打印服务端发送的信息
+        log.info("收到信息: {}", object);
+
+        // 关闭资源，避免内存泄漏
+        objectOutputStream.close();
+        objectInputStream.close();
+        socket.close();
+    }
+}
 ```
 
 ## 版本一
