@@ -18,6 +18,8 @@ Flink作为一个分布式流计算框架肯定涉及到了不少远程数据交
 
 ## 版本一
 
+> 代码地址：[Github](https://github.com/liboshuai01/flink/tree/learning/release-1.18/flink-learning/flink-learning-rpc/src/main/java/cn/liboshuai/flink/version1)
+
 ### 前言
 
 下面将介绍如何通过 Java 的 Socket 和反射机制，构建一个简单的 RPC 框架的 1.0 版本。
