@@ -7,7 +7,6 @@ Flink作为一个分布式流计算框架肯定涉及到了不少远程数据交
 - socket
 - 反射
 - 动态代理
-- netty
 - akka
 
 ### socket
