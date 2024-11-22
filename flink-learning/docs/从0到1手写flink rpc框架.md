@@ -94,6 +94,118 @@ public class Client {
 }
 ```
 
+### 反射
+
+> 代码地址：[Github]()
+
+反射允许我们在运行时检查类的属性和方法，甚至可以创建对象和调用方法。这在很多情况下非常有用，例如动态加载类、调用未知的方法等。
+
+下面的代码展示了一个用户服务 UserService 和一个使用反射调用该服务的方法的 Main 类。
+
+1. 首先，我们定义了一个 User 类，用于表示用户信息：
+```java
+package cn.liboshuai.flink.base.reflection;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+/**
+ * User类，用于表示用户信息
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private String name; // 用户名
+    private int age;     // 用户年龄
+    private String address; // 用户地址
+}
+```
+
+2. 接下来，我们实现了一个 UserService 类，用于管理用户信息：
+```java
+package cn.liboshuai.flink.base.reflection;
+
+import cn.liboshuai.flink.version1.common.User;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+@Slf4j
+public class UserService {
+
+    List<User> users = new ArrayList<User>();
+
+    public UserService() {
+        users.add(User.builder().name("lbs1").age(21).address("北京").build());
+        users.add(User.builder().name("lbs2").age(22).address("上海").build());
+        users.add(User.builder().name("lbs3").age(23).address("广州").build());
+        users.add(User.builder().name("lbs4").age(24).address("深圳").build());
+        users.add(User.builder().name("lbs5").age(25).address("杭州").build());
+    }
+
+    /**
+     * 根据姓名和年龄查询用户信息
+     */
+    public User findUserByNameAndAge(String name, int age) {
+        return users
+                .stream()
+                .filter(user -> Objects.equals(name, user.getName()) && Objects.equals(
+                        age,
+                        user.getAge()))
+                .collect(
+                        Collectors.toList()).get(0);
+    }
+}
+```
+
+3. 最后，在 Main 类中，我们使用反射来调用 UserService 的方法：
+```java
+package cn.liboshuai.flink.base.reflection;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+@Slf4j
+public class Main {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException,
+            IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        // 对象全类名
+        String interfaceName = "cn.liboshuai.flink.base.reflection.UserService";
+        // 方法名
+        String methodName = "findUserByNameAndAge";
+        // 参数列表
+        Object[] parameters = new Object[]{"lbs1", 21};
+        // 参数类型
+        Class<?>[] parameterTypes = new Class<?>[]{String.class, int.class};
+
+        // 根据'对象全类名'获取class对象
+        Class<?> aClass = Class.forName(interfaceName);
+        // 根据class对象创建该类的实例对象
+        Object newInstance = aClass.newInstance();
+        // 根据方法名称与参数类型获取 Method 对象
+        Method method = aClass.getMethod(methodName, parameterTypes);
+        // Method 根据实例对象与参数列表进行实际的方法调用，得到最终结果
+        Object result = method.invoke(newInstance, parameters);
+
+        // 打印结果
+        log.info("结果：{}", result);
+    }
+}
+```
+
 ## 版本一
 
 > 代码地址：[Github](https://github.com/liboshuai01/flink/tree/learning/release-1.18/flink-learning/flink-learning-rpc/src/main/java/cn/liboshuai/flink/version1)
