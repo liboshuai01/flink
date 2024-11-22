@@ -12,7 +12,7 @@ Flink作为一个分布式流计算框架肯定涉及到了不少远程数据交
 
 ### socket
 
-> 代码地址：[]()
+> 代码地址：[Github](https://github.com/liboshuai01/flink/tree/learning/release-1.18/flink-learning/flink-learning-rpc/src/main/java/cn/liboshuai/flink/base/socket)
 
 Socket 是一种网络编程的基本组件，允许程序通过网络进行通信。在 Java 中，我们可以使用 ServerSocket 和 Socket 类来实现网络通信。ServerSocket 用于监听端口并接受客户端的连接，而 Socket 则用于与服务端进行通信。
 
