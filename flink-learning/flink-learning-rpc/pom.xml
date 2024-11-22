@@ -16,7 +16,8 @@
 		<module>flink-learning-rpc-base</module>
 		<module>flink-learning-rpc-version1</module>
 		<module>flink-learning-rpc-version2</module>
-	</modules>
+        <module>flink-learning-rpc-version3</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
