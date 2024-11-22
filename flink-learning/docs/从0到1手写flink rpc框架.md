@@ -163,6 +163,147 @@ public class Main {
 }
 ```
 
+### 动态代理
+
+> 代码地址：[Github]()
+
+动态代理允许我们在运行时创建一个代理对象，该对象可以拦截对目标对象方法的调用。通过实现 InvocationHandler 接口，我们可以定义在调用目标方法前后执行的逻辑，例如记录日志、权限检查等。
+
+下面是一个简单的示例，展示了如何使用动态代理来实现用户服务的日志记录。
+
+1. 首先，我们定义一个 User 类，用于表示用户信息：
+```java
+/**
+ * User类，用于表示用户信息
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private String name; // 用户名
+    private int age;     // 用户年龄
+    private String address; // 用户地址
+}
+```
+
+2. 接下来，我们定义一个 UserService 接口，提供查找用户的方法：
+```java
+public interface UserService {
+
+    User findUserByNameAndAge(String name, int age);
+}
+```
+
+3. 然后，我们实现 UserService 接口，模拟一些用户数据：
+```java
+@Slf4j
+public class UserServiceImpl implements UserService {
+
+    List<User> users = new ArrayList<User>();
+
+    public UserServiceImpl() {
+        users.add(User.builder().name("lbs1").age(21).address("北京").build());
+        users.add(User.builder().name("lbs2").age(22).address("上海").build());
+        users.add(User.builder().name("lbs3").age(23).address("广州").build());
+        users.add(User.builder().name("lbs4").age(24).address("深圳").build());
+        users.add(User.builder().name("lbs5").age(25).address("杭州").build());
+    }
+
+    /**
+     * 根据姓名和年龄查询用户信息
+     */
+    public User findUserByNameAndAge(String name, int age) {
+        return users
+                .stream()
+                .filter(user -> Objects.equals(name, user.getName()) && Objects.equals(
+                        age,
+                        user.getAge()))
+                .collect(
+                        Collectors.toList()).get(0);
+    }
+}
+```
+
+4. 接下来，我们实现 LogHandler 类，该类用于记录方法调用的日志：
+```java
+@Slf4j
+public class LogHandler implements InvocationHandler {
+
+    /**
+     * 被代理的目标对象
+     */
+    Object target;
+
+    /**
+     * 构造函数，接收被代理的对象
+     */
+    public LogHandler(Object target) {
+        this.target = target;
+    }
+
+    /**
+     * 实现 InvocationHandler 接口的方法，当代理对象的方法被调用时会执行此方法
+     */
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // 方法调用前执行日志记录
+        before();
+        // 通过反射调用目标对象的方法，并传递参数
+        Object result = method.invoke(target, args);
+        // 方法调用后执行日志记录
+        after();
+        // 返回方法调用的结果
+        return result;
+    }
+
+    /**
+     * 方法调用前的日志记录
+     */
+    private void before() {
+        log.info("执行开始时间: {}", new Date()); // 记录当前时间
+    }
+
+    /**
+     * 方法调用后的日志记录
+     */
+    private void after() {
+        log.info("执行结束时间: {}", new Date()); // 记录当前时间
+    }
+}
+```
+
+5. 最后，我们在 Main 类中创建代理对象，并通过代理调用方法：
+```java
+@Slf4j
+public class Main {
+    public static void main(String[] args) {
+        // 创建 UserServiceImpl 的实例
+        UserServiceImpl userServiceImpl = new UserServiceImpl();
+
+        // 获取 UserServiceImpl 的类加载器
+        ClassLoader classLoader = userServiceImpl.getClass().getClassLoader();
+
+        // 获取 UserServiceImpl 实现的接口
+//        Class<?>[] interfaces = new Class<?>[]{UserService.class};
+        Class<?>[] interfaces = userServiceImpl.getClass().getInterfaces();
+
+        // 创建一个日志处理器的实例
+        InvocationHandler logHandler = new LogHandler(userServiceImpl);
+
+        // 创建代理对象，代理 UserServiceImpl
+        UserService proxy = (UserService) Proxy.newProxyInstance(classLoader, interfaces, logHandler);
+
+        // 通过代理对象调用方法
+        User user = proxy.findUserByNameAndAge("lbs4", 24);
+        // 记录找到的用户信息
+        log.info("user: {}", user);
+    }
+}
+```
+
 ## 版本一
 
 > 代码地址：[Github](https://github.com/liboshuai01/flink/tree/learning/release-1.18/flink-learning/flink-learning-rpc/src/main/java/cn/liboshuai/flink/version1)
