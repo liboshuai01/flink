@@ -1,6 +1,6 @@
-package cn.liboshuai.flink.base.socket.server.service;
+package cn.liboshuai.flink.version1.server.service;
 
-import cn.liboshuai.flink.base.socket.common.User;
+import cn.liboshuai.flink.version1.common.User;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
