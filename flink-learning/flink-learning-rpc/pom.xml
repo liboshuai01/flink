@@ -25,6 +25,7 @@
 		<log4j.version>2.16.0</log4j.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<netty.version>4.1.6.Final</netty.version>
+		<pekko.version>1.0.1</pekko.version>
 	</properties>
 
 	<dependencies>

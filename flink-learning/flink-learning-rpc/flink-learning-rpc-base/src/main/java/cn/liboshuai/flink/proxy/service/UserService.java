@@ -1,7 +1,7 @@
 package cn.liboshuai.flink.proxy.service;
 
 
-import cn.liboshuai.flink.base.proxy.pojo.User;
+import cn.liboshuai.flink.proxy.pojo.User;
 
 public interface UserService {
 

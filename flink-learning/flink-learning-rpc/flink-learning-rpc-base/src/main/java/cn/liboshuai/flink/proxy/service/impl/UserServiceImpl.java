@@ -1,7 +1,7 @@
 package cn.liboshuai.flink.proxy.service.impl;
 
-import cn.liboshuai.flink.base.proxy.service.UserService;
-import cn.liboshuai.flink.base.proxy.pojo.User;
+import cn.liboshuai.flink.proxy.pojo.User;
+import cn.liboshuai.flink.proxy.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    List<User> users = new ArrayList<User>();
+    List<User> users = new ArrayList<>();
 
     public UserServiceImpl() {
         users.add(User.builder().name("lbs1").age(21).address("北京").build());

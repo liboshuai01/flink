@@ -1,9 +1,9 @@
 package cn.liboshuai.flink.proxy;
 
-import cn.liboshuai.flink.base.proxy.handler.LogHandler;
-import cn.liboshuai.flink.base.proxy.pojo.User;
-import cn.liboshuai.flink.base.proxy.service.UserService;
-import cn.liboshuai.flink.base.proxy.service.impl.UserServiceImpl;
+import cn.liboshuai.flink.proxy.handler.LogHandler;
+import cn.liboshuai.flink.proxy.pojo.User;
+import cn.liboshuai.flink.proxy.service.UserService;
+import cn.liboshuai.flink.proxy.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationHandler;

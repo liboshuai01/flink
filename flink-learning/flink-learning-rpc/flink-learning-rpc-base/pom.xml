@@ -23,5 +23,30 @@
 			<artifactId>netty-all</artifactId>
 			<version>${netty.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.pekko</groupId>
+			<artifactId>pekko-actor_2.12</artifactId>
+			<version>${pekko.version}</version>
+			<!--<optional>${flink.markBundledAsOptional}</optional>-->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.pekko</groupId>
+			<artifactId>pekko-remote_2.12</artifactId>
+			<version>${pekko.version}</version>
+			<!--<optional>${flink.markBundledAsOptional}</optional>-->
+			<exclusions>
+				<exclusion>
+					<!-- optional dependency for UDP transport which we don't need -->
+					<groupId>io.aeron</groupId>
+					<artifactId>aeron-driver</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- optional dependency for UDP transport which we don't need -->
+					<groupId>io.aeron</groupId>
+					<artifactId>aeron-client</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 </project>
