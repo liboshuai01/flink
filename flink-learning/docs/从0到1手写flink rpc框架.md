@@ -165,7 +165,7 @@ public class Main {
 
 ### 动态代理
 
-> 代码地址：[Github]()
+> 代码地址：[Github](https://github.com/liboshuai01/flink/tree/learning/release-1.18/flink-learning/flink-learning-rpc/src/main/java/cn/liboshuai/flink/base/proxy)
 
 动态代理允许我们在运行时创建一个代理对象，该对象可以拦截对目标对象方法的调用。通过实现 InvocationHandler 接口，我们可以定义在调用目标方法前后执行的逻辑，例如记录日志、权限检查等。
 
