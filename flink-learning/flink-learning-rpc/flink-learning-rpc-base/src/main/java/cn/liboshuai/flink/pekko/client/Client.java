@@ -12,14 +12,19 @@ import org.apache.pekko.actor.Props;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 客户端主类，启动Actor系统和客户端Actor。
+ */
 @Slf4j
 public class Client {
     public static void main(String[] args) {
-        Map<String,Object> overrides = new HashMap<>();
+        // 设置客户端的配置
+        Map<String, Object> overrides = new HashMap<>();
         overrides.put("pekko.remote.artery.canonical.port", 9994);
         Config config = ConfigFactory.parseMap(overrides).withFallback(ConfigFactory.load());
-        ActorSystem actorSystem = ActorSystem.create("client",config);
-        ActorRef actorRef = actorSystem.actorOf(Props.create(ClientActor.class), "client-actor");
-        actorRef.tell(new Start(), ActorRef.noSender());
+
+        ActorSystem actorSystem = ActorSystem.create("client", config); // 创建Actor系统
+        ActorRef actorRef = actorSystem.actorOf(Props.create(ClientActor.class), "client-actor"); // 创建客户端Actor
+        actorRef.tell(new Start(), ActorRef.noSender()); // 发送启动消息
     }
 }
