@@ -1,4 +1,4 @@
-package cn.liboshuai.flink.pekko.common;
+package cn.liboshuai.flink.pekko.demo1.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

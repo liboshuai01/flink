@@ -1,7 +1,7 @@
-package cn.liboshuai.flink.pekko.client;
+package cn.liboshuai.flink.pekko.demo1.client;
 
-import cn.liboshuai.flink.pekko.client.actor.ClientActor;
-import cn.liboshuai.flink.pekko.client.pojo.Start;
+import cn.liboshuai.flink.pekko.demo1.client.actor.ClientActor;
+import cn.liboshuai.flink.pekko.demo1.client.pojo.Start;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import lombok.extern.slf4j.Slf4j;

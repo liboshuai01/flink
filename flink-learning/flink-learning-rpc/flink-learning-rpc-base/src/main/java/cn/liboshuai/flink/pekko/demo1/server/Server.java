@@ -1,6 +1,6 @@
-package cn.liboshuai.flink.pekko.server;
+package cn.liboshuai.flink.pekko.demo1.server;
 
-import cn.liboshuai.flink.pekko.server.actor.ServerActor;
+import cn.liboshuai.flink.pekko.demo1.server.actor.ServerActor;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import lombok.extern.slf4j.Slf4j;

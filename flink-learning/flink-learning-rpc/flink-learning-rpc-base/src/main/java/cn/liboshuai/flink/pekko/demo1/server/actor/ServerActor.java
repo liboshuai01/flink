@@ -1,6 +1,6 @@
-package cn.liboshuai.flink.pekko.server.actor;
+package cn.liboshuai.flink.pekko.demo1.server.actor;
 
-import cn.liboshuai.flink.pekko.common.Message;
+import cn.liboshuai.flink.pekko.demo1.common.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.pekko.actor.AbstractActor;
 import org.apache.pekko.actor.ActorRef;
