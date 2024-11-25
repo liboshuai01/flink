@@ -12,10 +12,10 @@ public class Client {
     public static void main(String[] args) {
         UserService userService = new RpcHandler().getProxy(UserService.class);
         User user = userService.findUserByNameAndAge("lbs3", 23);
-        log.info("user:{}", user);
+        log.info("接收到的响应:{}", user);
 
         OrderService orderService = new RpcHandler().getProxy(OrderService.class);
         Order order = orderService.findOrderByNo("D000001");
-        log.info("order:{}", order);
+        log.info("接收到的响应:{}", order);
     }
 }

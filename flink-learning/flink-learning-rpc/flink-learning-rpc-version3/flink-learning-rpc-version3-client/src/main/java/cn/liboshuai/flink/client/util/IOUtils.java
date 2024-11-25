@@ -27,13 +27,11 @@ import java.util.concurrent.ExecutionException;
 
 @Slf4j
 public class IOUtils {
-    private static int port = 10004;
+    private static final ActorRef actorRef;
 
-    public static RpcResponse sendRpcRequest(RpcRequest rpcRequest) throws Exception {
+    static {
         // 设置客户端的配置
-        Map<String, Object> overrides = new HashMap<>();
-        overrides.put("pekko.remote.artery.canonical.port", port++);
-        Config config = ConfigFactory.parseMap(overrides).withFallback(ConfigFactory.load());
+        Config config = ConfigFactory.load();
         ActorSystem actorSystem = ActorSystem.create("client", config); // 创建Actor系统
         // 获取服务端Actor的引用
         ActorSelection actorSelection = actorSystem.actorSelection(
@@ -43,7 +41,14 @@ public class IOUtils {
                 .toCompletableFuture();
 
         // 异常处理，确保在获取Actor引用时处理可能的异常
-        ActorRef actorRef = completableFuture.get();
+        try {
+            actorRef = completableFuture.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static RpcResponse sendRpcRequest(RpcRequest rpcRequest) throws Exception {
         Timeout timeout = Timeout.create(Duration.ofSeconds(5));
         Future<Object> future = Patterns.ask(actorRef, rpcRequest, timeout);
         return  (RpcResponse) Await.result(future, timeout.duration());
