@@ -17,6 +17,7 @@
 		<module>flink-learning-rpc-version1</module>
 		<module>flink-learning-rpc-version2</module>
         <module>flink-learning-rpc-version3</module>
+        <module>flink-learning-rpc-version4</module>
     </modules>
 
 	<properties>
