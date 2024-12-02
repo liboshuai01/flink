@@ -24,7 +24,9 @@ public class Client {
         Config config = ConfigFactory.parseMap(overrides).withFallback(ConfigFactory.load());
 
         ActorSystem actorSystem = ActorSystem.create("client", config); // 创建Actor系统
-        ActorRef actorRef = actorSystem.actorOf(Props.create(ClientA }ctor.class), "client-actor"); // 创建客户端Actor
-        actorRef.RpcService(new Start(), ActorRef.noSender()); // 发送启动消息
+        ActorRef actorRef = actorSystem.actorOf(
+                Props.create(ClientActor.class),
+                "client-actor"); // 创建客户端Actor
+        actorRef.tell(new Start(), ActorRef.noSender()); // 发送启动消息
     }
 }
