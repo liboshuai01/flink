@@ -2,19 +2,24 @@ package org.apache.flink.streaming.examples.lbs.demo;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.streaming.api.datastream.*;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
+import org.apache.flink.util.OutputTag;
 
 public class WordCount {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.socketTextStream("localhost", 6666)
-                .flatMap(new Splitter())
-                .keyBy(value -> value.f0)
-                .window(TumblingProcessingTimeWindows.of(Time.seconds(5))).sum(1)
-                .print();
+        DataStreamSource<String> dataStream = env.socketTextStream("localhost", 6666);
+        SingleOutputStreamOperator<String> mapDataStream = dataStream.map(String::toLowerCase);
+        SingleOutputStreamOperator<Tuple2<String, Integer>> flatMapDataStream = mapDataStream.flatMap(new Splitter());
+        KeyedStream<Tuple2<String, Integer>, String> keyedDataStream = flatMapDataStream.keyBy(value -> value.f0);
+        WindowedStream<Tuple2<String, Integer>, String, TimeWindow> windowDataStream = keyedDataStream.window(TumblingProcessingTimeWindows.of(Time.seconds(5)));
+        SingleOutputStreamOperator<Tuple2<String, Integer>> sumDataStream = windowDataStream.sum(1);
+        DataStreamSink<Tuple2<String, Integer>> dataStreamSink = sumDataStream.print();
 
         env.execute("word count demo");
     }
