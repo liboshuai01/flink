@@ -10,7 +10,7 @@ import org.apache.flink.util.Collector;
 public class WordCount {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.socketTextStream("localhost", 9999)
+        env.socketTextStream("localhost", 6666)
                 .flatMap(new Splitter())
                 .keyBy(value -> value.f0)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(5))).sum(1)
