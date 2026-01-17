@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CodeRemarkPersistentStateRepository">
+    <option name="projectCodeRemarks">
+      <list>
+        <CodeRemark>
+          <option name="contentHash" value="DAE5919C9F0188664CC521FA8F80F54A" />
+          <option name="fileName" value="StreamExecutionEnvironment.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java" />
+          <option name="lineNumber" value="2424" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="传入一个空的配置对象，则只会使用全局配置（flink-conf.yml）" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="DAE5919C9F0188664CC521FA8F80F54A" />
+          <option name="fileName" value="StreamExecutionEnvironment.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java" />
+          <option name="lineNumber" value="2440" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="threadLocal工厂和statis工厂都为null，所以得到一个空值的Optional" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="DAE5919C9F0188664CC521FA8F80F54A" />
+          <option name="fileName" value="StreamExecutionEnvironment.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java" />
+          <option name="lineNumber" value="2441" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="因为上步得到的是一个空值的Optional，所以这一步map不会被执行" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="DAE5919C9F0188664CC521FA8F80F54A" />
+          <option name="fileName" value="StreamExecutionEnvironment.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java" />
+          <option name="lineNumber" value="2442" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="创建了一个LocalStreamEnvironment，成员变量有：DefaultExecutorServiceLoader（用于sip）、configuration（三个配置：并行度/执行模式/执行目标）userClassloader（AppClassLoader)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="CBFB66C16E20F643C201B372A10278B9" />
+          <option name="fileName" value="WordCount.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-examples/flink-examples-batch/src/main/java/org/apache/flink/examples/java/lbs/WordCount.java" />
+          <option name="lineNumber" value="10" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="得到一个LocalStreamEnvironment对象，成员变量有：config（仅有三个配置，并行度、userClassloader（AppClassLoader）、executorServiceLoader（用于sip）" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="DAE5919C9F0188664CC521FA8F80F54A" />
+          <option name="fileName" value="StreamExecutionEnvironment.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java" />
+          <option name="lineNumber" value="1727" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="传入Flink自带的Function（socketTextStreamFunction），得到一个DataStreamSource" />
+        </CodeRemark>
+      </list>
+    </option>
+    <option name="version" value="1.4.0" />
+  </component>
+</project>
