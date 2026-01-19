@@ -7,7 +7,6 @@ scalastyle-output.xml
 !.idea/icon.png
 !.idea/bookmarks.json
 !.idea/code-remark.xml
-!.idea/GitCommitMessageStorage.xml
 .metadata
 .settings
 .project
