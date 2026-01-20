@@ -1,33 +1,45 @@
 {
   "flink": [
     {
-      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/datastream/DataStream.java",
-      "linenumber": 1211,
-      "name": "return returnStream;",
+      "fileDescriptor": "$/flink-runtime/src/main/java/org/apache/flink/runtime/minicluster/MiniCluster.java",
+      "linenumber": 1015,
+      "name": "public CompletableFuture\u003cJobSubmissionResult\u003e submitJob(JobGraph jobGraph) {",
+      "bookmarkType": "DIGIT_7"
+    },
+    {
+      "fileDescriptor": "$/flink-clients/src/main/java/org/apache/flink/client/program/PerJobMiniClusterFactory.java",
+      "linenumber": 76,
+      "name": "miniCluster.start();",
+      "bookmarkType": "DIGIT_6"
+    },
+    {
+      "fileDescriptor": "$/flink-clients/src/main/java/org/apache/flink/client/deployment/executors/LocalExecutor.java",
+      "linenumber": 83,
+      "name": "return PerJobMiniClusterFactory.createWithFactory(effectiveConfig, miniClusterFactory)",
       "bookmarkType": "DIGIT_5"
     },
     {
-      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/datastream/DataStream.java",
-      "linenumber": 1207,
-      "name": "new SingleOutputStreamOperator(environment, resultTransform);",
+      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java",
+      "linenumber": 2236,
+      "name": "CompletableFuture\u003cJobClient\u003e jobClientFuture \u003d",
       "bookmarkType": "DIGIT_4"
     },
     {
-      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/datastream/DataStream.java",
-      "linenumber": 1197,
-      "name": "new OneInputTransformation\u003c\u003e(",
+      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java",
+      "linenumber": 2124,
+      "name": "final JobClient jobClient \u003d executeAsync(streamGraph);",
       "bookmarkType": "DIGIT_3"
     },
     {
-      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/datastream/DataStream.java",
-      "linenumber": 1163,
-      "name": "return doTransform(operatorName, outTypeInfo, SimpleOperatorFactory.of(operator));",
+      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/environment/StreamExecutionEnvironment.java",
+      "linenumber": 2098,
+      "name": "return execute(streamGraph);",
       "bookmarkType": "DIGIT_2"
     },
     {
-      "fileDescriptor": "$/flink-streaming-java/src/main/java/org/apache/flink/streaming/api/datastream/DataStream.java",
-      "linenumber": 695,
-      "name": "return transform(\"Filter\", getType(), new StreamFilter\u003c\u003e(clean(filter)));",
+      "fileDescriptor": "$/flink-examples/flink-examples-batch/src/main/java/org/apache/flink/examples/java/lbs/WordCount.java",
+      "linenumber": 21,
+      "name": "env.execute();",
       "bookmarkType": "DIGIT_1"
     }
   ]
