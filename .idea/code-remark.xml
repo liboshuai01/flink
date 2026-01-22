@@ -55,30 +55,6 @@
           <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
           <option name="fileName" value="FutureUtils.java" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
-          <option name="lineNumber" value="165" />
-          <option name="projectName" value="flink" />
-          <option name="text" value="1. 获取新的 Future（发起一次新尝试）" />
-        </CodeRemark>
-        <CodeRemark>
-          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
-          <option name="fileName" value="FutureUtils.java" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
-          <option name="lineNumber" value="169" />
-          <option name="projectName" value="flink" />
-          <option name="text" value="2. 发生异常，判断是否可重试" />
-        </CodeRemark>
-        <CodeRemark>
-          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
-          <option name="fileName" value="FutureUtils.java" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
-          <option name="lineNumber" value="189" />
-          <option name="projectName" value="flink" />
-          <option name="text" value="3. 递归调用，次数减一" />
-        </CodeRemark>
-        <CodeRemark>
-          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
-          <option name="fileName" value="FutureUtils.java" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
           <option name="lineNumber" value="195" />
           <option name="projectName" value="flink" />
           <option name="text" value="4. 次数耗尽，抛出 RetryException" />
@@ -87,9 +63,97 @@
           <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
           <option name="fileName" value="FutureUtils.java" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
-          <option name="lineNumber" value="181" />
+          <option name="lineNumber" value="164" />
           <option name="projectName" value="flink" />
-          <option name="text" value="不可重试的异常，直接失败" />
+          <option name="text" value="1. 防御性检查：如果外部已经取消了总任务，就不要再执行了" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="165" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="2. 执行真正的业务逻辑（比如发起一次 HTTP 请求）" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="167" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="3. 注册回调：当这一次尝试结束时（无论成功失败），执行下面的逻辑" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="169" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="=== 分支 A: 这一次失败了 ===" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="170" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="// A1. 如果是任务被取消导致的异常，直接让总任务失败，不再重试" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="175" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="// 去掉封装层，拿到原始异常" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="176" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="// A2. 检查异常类型是否允许重试 (retryPredicate)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="177" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="// 不允许重试，直接失败" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="184" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="&gt;&gt;&gt; 关键点：递归调用 &lt;&lt;&lt;" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="189" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="还有次数，递归调用 retryOperation，重试次数减 1" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="183" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="A3. 检查重试次数是否用完" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="190" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="次数用光了，彻底失败" />
         </CodeRemark>
         <CodeRemark>
           <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
@@ -97,7 +161,23 @@
           <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
           <option name="lineNumber" value="200" />
           <option name="projectName" value="flink" />
-          <option name="text" value="5. 成功，结束整个重试链" />
+          <option name="text" value="直接把结果赋值给总 Future，整个流程结束" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="199" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="=== 分支 B: 这一次成功了 ===" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="F1EB07C9F7B5E1C7B4459D3DC73567B8" />
+          <option name="fileName" value="FutureUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/util/concurrent/FutureUtils.java" />
+          <option name="lineNumber" value="205" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="4. 联动取消：如果用户在这个过程中手动取消了 resultFuture，那么当前正在跑的 operationFuture 也应该被取消。" />
         </CodeRemark>
       </list>
     </option>
