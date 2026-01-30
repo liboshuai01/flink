@@ -179,6 +179,230 @@
           <option name="projectName" value="flink" />
           <option name="text" value="4. 联动取消：如果用户在这个过程中手动取消了 resultFuture，那么当前正在跑的 operationFuture 也应该被取消。" />
         </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="722" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="1. 尝试获取原始值（依次查找主键、回退键）" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="726" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="2. 如果配置项定义为 List 类型" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="727" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="将原始值转换为 List" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="729" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="否则转换为单一原子类型 (int, string, duration 等)&#10;" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="732" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="异常处理：如果是敏感数据隐藏具体值，否则显示具体值" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="853" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="尝试通过 ConfigOption 获取值" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="854" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="委托 applyWithOption 处理键的查找优先级" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="684" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="判断该选项是否支持前缀 Map (如 key.a, key.b)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="685" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="1. 优先尝试使用主键 (Main Key) 查找" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="690" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="2. 如果主键未找到，遍历回退键 (Fallback Keys)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="694" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="记录日志，提示使用了回退键或废弃键" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="824" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="从内部 Map 获取具体值的底层实现" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="830" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="直接从 HashMap 中获取对象" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="831" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="如果不是前缀 Map 模式，或者直接找到了值，则返回" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="FAC69E8931CDB815F1436B687DF76991" />
+          <option name="fileName" value="Configuration.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/Configuration.java" />
+          <option name="lineNumber" value="835" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="处理前缀 Map 逻辑 (将 key.* 的条目聚合为一个 Map)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="535" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="判断是否为 Map 类型且非 List" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="341" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="将对象转换为 List" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="348" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="否则按分号拆分字符串，并对每个元素进行类型转换" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="343" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="如果本身就是 List 直接返回" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="545" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="聚合前缀 Map 的逻辑 (例如将 &quot;conf.x=1&quot;, &quot;conf.y=2&quot; 聚合为 Map)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="552" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="去掉前缀作为新的 Key" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="553" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="转换值为 String" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="314" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="将原始对象转换为目标类型 T" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="315" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="根据目标 Class 类型进行分发处理" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="327" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="枚举转换" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="329" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="时间段转换 (如 &quot;10 s&quot;)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="331" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="内存大小转换 (如 &quot;100 mb&quot;)" />
+        </CodeRemark>
+        <CodeRemark>
+          <option name="contentHash" value="77822B50E565354F0AD576E61FCFA773" />
+          <option name="fileName" value="ConfigurationUtils.java" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/flink-core/src/main/java/org/apache/flink/configuration/ConfigurationUtils.java" />
+          <option name="lineNumber" value="333" />
+          <option name="projectName" value="flink" />
+          <option name="text" value="Map 转换" />
+        </CodeRemark>
       </list>
     </option>
     <option name="version" value="1.4.0" />
